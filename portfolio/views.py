@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.db.models import Sum
 from django.views.decorators.csrf import csrf_protect
-from .serializers import CustomerSerializer
 
 #registration
 #from django.shortcuts import render_to_response
