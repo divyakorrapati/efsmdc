@@ -6,10 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.db.models import Sum
 from django.views.decorators.csrf import csrf_protect
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
 from .serializers import CustomerSerializer
 
 #registration
@@ -22,22 +18,6 @@ from django.template.response import TemplateResponse
 from django.shortcuts import resolve_url
 from django.urls import reverse, reverse_lazy
 
-import warnings
-from django.contrib.auth import (
-    REDIRECT_FIELD_NAME, get_user_model, login as auth_login,
-    logout as auth_logout, update_session_auth_hash,
-)
-
-
-
-# List at the end of the views.py
-# Lists all customers
-class CustomerList(APIView):
-
-    def get(self,request):
-        customers_json = Customer.objects.all()
-        serializer = CustomerSerializer(customers_json, many=True)
-        return Response(serializer.data)
 
 
 def home(request):
