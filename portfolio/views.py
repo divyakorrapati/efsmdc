@@ -30,6 +30,20 @@ def customer_list(request):
     return render(request, 'portfolio/customer_list.html',
                   {'customers': customer})
 
+@login_required
+def customer_add(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            customer = form.save(commit=False)
+            customer.updated_date = timezone.now()
+            customer.save()
+            customers = Customer.objects.all()
+        return render(request, 'portfolio/customer_list.html',{'customers':customers})
+    else:
+        form = CustomerForm()
+    return render(request, 'portfolio/customer_new.html', {'form':form})
+
 
 @login_required
 def customer_edit(request, pk):

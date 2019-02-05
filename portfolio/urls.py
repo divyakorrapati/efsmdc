@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^password-reset/done/$', reset_done, name='password_reset_done'),
     url(r'^password-reset/$', reset, {'post_reset_redirect': '/password-reset/done/', 'email_template_name': 'registration/password_reset_email.html'}, name='password_reset'),
     path('customer_list/', views.customer_list, name='customer_list'),
+    path('customer_new/', views.customer_add, name='customer_new'),
     path('customer/<int:pk>/delete/', views.customer_delete, name='customer_delete'),
     path('customer/<int:pk>/edit/', views.customer_edit, name='customer_edit'),
     url(r'^customer/(?P<pk>\d+)/portfolio/$', views.portfolio, name='portfolio'),
