@@ -3,7 +3,7 @@ from . import views
 from django.urls import path
 from django.contrib.auth.views import logout, password_change as pwd_change, password_change_done as pwd_change_done, password_reset as reset, password_reset_done as reset_done, password_reset_confirm as reset_confirm, password_reset_complete as reset_complete
 
-app_name = 'portfolio'
+app_name = 'portfolio-divya'
 urlpatterns = [
     path('', views.home, name='home'),
     url(r'^home/$', views.home, name='home'),
@@ -21,7 +21,7 @@ urlpatterns = [
     path('customer_new/', views.customer_add, name='customer_new'),
     path('customer/<int:pk>/delete/', views.customer_delete, name='customer_delete'),
     path('customer/<int:pk>/edit/', views.customer_edit, name='customer_edit'),
-    url(r'^customer/(?P<pk>\d+)/portfolio/$', views.portfolio, name='portfolio'),
+    url(r'^customer/(?P<pk>\d+)/portfolio-divya/$', views.portfolio, name='portfolio-divya'),
     path('stock_list', views.stock_list, name='stock_list'),
     path('stock/create/', views.stock_new, name='stock_new'),
     path('stock/<int:pk>/edit/', views.stock_edit, name='stock_edit'),

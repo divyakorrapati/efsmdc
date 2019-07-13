@@ -8,7 +8,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portfolio', '0001_initial'),
+        ('portfolio-divya', '0001_initial'),
     ]
 
     operations = [
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('acquired_date', models.DateField(default=django.utils.timezone.now)),
                 ('recent_value', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('recent_date', models.DateField(blank=True, default=django.utils.timezone.now, null=True)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='investments', to='portfolio.Customer')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='investments', to='portfolio-divya.Customer')),
             ],
         ),
         migrations.CreateModel(
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('shares', models.DecimalField(decimal_places=1, max_digits=10)),
                 ('purchase_price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('purchase_date', models.DateField(blank=True, default=django.utils.timezone.now, null=True)),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='stocks', to='portfolio.Customer')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='stocks', to='portfolio-divya.Customer')),
             ],
         ),
     ]
